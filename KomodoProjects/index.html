@@ -8,17 +8,19 @@
     <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
     
     <script>
-		var	objContact;
-		var	picturesource;
-		var	destinationtype;
-			document.addEventListener("deviceready",onDeviceReady,false);
-		function	onDeviceReady()
-		{
-			picturesource=navigator.camera.PictureSourceType;
-			destinationtype=navigator.camera.DestinationType;
-			objContact=navigator.contacts.create();
-		}
-				</script>
+	var objContact;
+	var	picturesource;
+	var	destinationtype;
+		
+          document.addEventListener("deviceready",onDeviceReady,false);
+		
+     function	onDeviceReady()
+	{
+	picturesource=navigator.camera.PictureSourceType;
+	destinationtype=navigator.camera.DestinationType;
+	objContact=navigator.contacts.create();
+	}
+	</script>
 </head>
 
 <body>
@@ -234,7 +236,7 @@
      <br>
      <p><label>Last Name:</label>
      <input id="LastName" type="text" style="width: 200px" /></p>
-     <button onclick="AccessContacts();" class="button">Find</button>
+     <button onclick="pickContact();" class="button">Find</button>
      <label id="contactname"></label>
 </section>
         

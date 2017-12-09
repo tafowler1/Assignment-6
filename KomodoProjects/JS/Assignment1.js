@@ -1,3 +1,12 @@
+/* exported Orders */
+/* exported GetOrderHistory */
+/* exported GetOrders */
+/* exported GetCustomerOrders */
+/* exported UpdateOrder */
+/* exported ToAddCustomer*/
+/* exported AddCustomer*/
+/* exported DeleteCustomer*/
+/* exported ModifyOrder*/
 
 function MenuChoice(selection)
 {
@@ -432,3 +441,35 @@ function onFail(message)
 {
  alert("Failed because: " +	message);
 }
+
+function pickContact()
+{
+//The pickcontact method has two	parameters. The	first parameter	is	the	function	that handles	a	successful	contact
+//selection,	and	the	data	is	returned.		The	second	parameter	is	optional,	and	is	called	if	no	contact	is	returned.
+//The	contact	information	is	returned	as	a	JSON	object,	with	arrays	for	certain	items	like	phone	numbers.
+	navigator.contacts.pickContact(function(contact)	//Function	that	operates	when	a	contact	is successfully	returned
+	{
+	var	contactinfo	="";
+	contactinfo	+=contact.name.givenName + ""+ contact.name.familyName +"<br>";
+	var	count=0;
+	if	(contact.phoneNumbers !==null) //Checks	for	the	presence	of	phone	numbers
+	{
+	for	(count=0; count<contact.phoneNumbers.length;count++)	//Retrieves	all	the	phone	numbers
+	{
+	contactinfo	+=contact.phoneNumbers[count].type+":"+ contact.phoneNumbers[count].value+"<br>";
+	}
+	}
+	if	(contact.emails	!==	null)	//Checks for	the	presence	of	email	addresses
+	{
+	for(count=0;count<contact.emails.length;count++)	//Retrieves	all	email	addresses
+	{
+	contactinfo	+=contact.emails[count].type+": "+contact.emails[count].value+"<br>";
+	}
+	}
+	document.getElementById("contactname").innerHTML=contactinfo;
+	},
+    function(err)	//Function	that	operates	when	nothing	is	returned
+	{
+	alert("Error:"+err);							
+}
+); }
