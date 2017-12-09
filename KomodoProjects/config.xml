@@ -15,7 +15,7 @@
     <preference name="phonegap-version" value="cli-7.0.1" />
     <plugin name="cordova-plugin-whitelist" source="npm"/>
     <access origin="*"/>
-    <plugin name="cordova-plugin-camera" source="npm"/>
+    <plugin name="cordova-plugin-camera" source="npm" version="3.0.0" />
     <plugin name="cordova-plugin-geolocation" source="npm" version="3.0.0" />
     <plugin name="cordova-plugin-splashscreen" source="npm" version="4.1.0" />
     <preference name="SplashScreenDelay" value= "3000"/>
