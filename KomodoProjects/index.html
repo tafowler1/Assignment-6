@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+     <title>Mobile Applications</title>
+     <script src="JS/Assignment1.js"></script>
+    <link rel="stylesheet" type="text/css" href="styles/Assignment1.css" />
+    <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+    
+    <script>
+		var	objContact;
+		var	picturesource;
+		var	destinationtype;
+			document.addEventListener("deviceready",onDeviceReady,false);
+		function	onDeviceReady()
+		{
+			picturesource=navigator.camera.PictureSourceType;
+			destinationtype=navigator.camera.DestinationType;
+			objContact=navigator.contacts.create();
+		}
+				</script>
+</head>
+
+<body>
+     <header>
+    <h1>Assignment 1</h1>
+    <br>
+    <hr>
+    <br>
+     </header>
+     <section id="title">
+    <select onchange= "MenuChoice (value)" id="menu" class="menu">
+        <option value="None">Please select an option</option>
+        <option value="Area1">Customer List</option>
+        <option value="Area7">Add a Customer</option>
+        <option value="Area2">Order History</option>
+        <option value="Area5">Current Orders</option>
+        <option value="Area8">Geolocation</option>
+        <option value="Area9">Take a Picture</option>
+        <option value="Area10">Access Contacts</option>
+        <option value="Area3">About</option>
+    </select>
+</section>
+<section id="Area1" class="area1">
+     <h2> Customer List </h2>
+     <br>
+     <label id="deletedcustomer" class="delete"> </label>
+     <br>
+     <input type="button" value="Add A Customer" onclick="ToAddCustomer();" class="button2" />
+     
+     <hr>
+     <br>
+     <p id="listcustomers"> </p>
+   
+     
+</section>
+<section id="Area7" class="area7">
+     <br>
+     <fieldset>
+          <legend> <h2> Add a Customer</h2></legend>
+          <p><label for="CustomerID" class="form"> Customer ID:</label>
+          <input id="CustomerID" type="text" pattern="[A-Za-z] {5}" style="text-transform: uppercase; width: 200px" required /></p>
+          
+          <p><label for="CompanyName" class="form">Company Name:</label>
+          <input id="CompanyName" type="text" style="width: 200px" required /></p>
+          
+          <p><label for="City" class="form"> Company City:</label>
+          <input id="City" type="text" style="width: 200px" required /></p>
+          <br>
+          <div id="buttons">
+               <input type="button" value="Submit" onclick="AddCustomer();" />
+          </div>
+     </fieldset>
+     <br>
+     <label id="result"></label>
+     
+</section>
+  <section id="Area4">
+     <h2> Current Orders</h2>
+     <br>
+     <label id="currentorders">Current Orders</label>
+</section>  
+<section id="Area2" class="area2">
+     <h2> Order History</h2>
+     <br><label>Customer ID</label>
+    <input type="text" id="CustID">
+    <button onclick="GetOrderHistory ()" id="orderhistory" class="button"> Go </button>
+    <hr>
+    <br>
+    <label id="orderdisplay" >Display Order History</label>
+     
+
+     <br>
+     
+</section>
+
+<section id="Area5" class="area5">
+     <h2>Customer's Current Orders</h2>
+     <br>
+     <label>Customer ID:</label>
+    <input type="text" id="customername">
+    <button onclick="GetCustomerOrders ()" id="customerorders" class="button"> Go </button>
+    <button onclick="ListCustomers()" class="button">Return to List</button>
+    <hr>
+    <br>
+    <label id="displaycustomerorders" ></label>
+     <br>
+</section>
+
+<section id="Area6" class="area6">
+    
+     <fieldset>
+          <legend> <h2> Update Order Information </h2></legend>
+          <br>
+                <p><label for="OrderID" class="form">Order ID:</label>
+                <input id="OrderID" type="text" placeholder="ID" style="width:200px" disabled="true" readonly /></p>
+                
+                <p><label for="ShipName" class="form">Name:</label>
+                <input id="ShipName" type="text" placeholder="Name" style="width: 200px" /></p>
+                
+                <p><label for="ShipAddress" class="form">Address:</label>
+                <input id="ShipAddress" type="text" placeholder="Address" style="width: 200px" /></p>
+                
+                <p><label for="ShipCity" class="form">City:</label>
+                <input id="ShipCity" type="text" placeholder="City" style="width: 200px" /></p>
+                
+                <p><label for="ShipPostcode" class="form">Postal Code:</label>
+                <input id="ShipPostcode" type="text" placeholder="Postal Code" style="width: 100px" /></p>
+                
+                <br>
+                <div id="buttons">
+                    <input type="button" value="Cancel" onclick="ListCustomers();" />
+                    <input type="button" value="Save" onclick="ModifyOrder();" />
+                </div>
+          
+     </fieldset>
+</section>
+
+<section id="Area3" class="area3">
+     <h2> About </h2>
+     <p>Yadiyada</p>
+</section>
+
+<section id="Area8" class="area8">
+    <h2> Geolocation</h2>
+     	<hr>
+          <br>
+		<button onclick="Location();">Find Current Location</button>
+		<br>
+          <br>
+          
+		<label>Latitude: </label>
+		<label id="latitude">Latitude	Result</label>
+		<br>
+          <br>
+		<label>Longitude: </label>
+		<label id="longitude">Longitude Result</label>
+          <br>
+          <hr>
+          <br>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <style>
+    #map {
+        height: 100%;
+        width: 600px;
+      }
+       html, body {
+        height: 100%;
+        width: 600px;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+    <div id="map"></div>
+    <script>
+      var map, infoWindow;
+      function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: -34.397, lng: 150.644},
+          zoom: 6
+        });
+        infoWindow = new google.maps.InfoWindow();
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(function(position) {
+            var pos = {
+              lat: position.coords.latitude,
+              lng: position.coords.longitude
+            };
+
+            infoWindow.setPosition(pos);
+            infoWindow.setContent('Location found.');
+            infoWindow.open(map);
+            map.setCenter(pos);
+          }, function() {
+            handleLocationError(true, infoWindow, map.getCenter());
+          });
+        } else {
+          // Browser doesn't support Geolocation
+          handleLocationError(false, infoWindow, map.getCenter());
+        }
+      }
+
+      function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+        infoWindow.setPosition(pos);
+        infoWindow.setContent(browserHasGeolocation ?
+                              'Error: The Geolocation service failed.' :
+                              'Error: Your browser doesn\'t support geolocation.');
+        infoWindow.open(map);
+      }
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCogJa7WXGi0NqX1OacacTrAvb1z_HMg4w&callback=initMap">
+    </script>
+
+      
+</section>
+
+
+<section id="Area9" class="area9">
+     <h2>Camera</h2>
+     <br>
+     <hr>
+     <br>
+     <button onclick="CapturePhoto()">Take Picture</button>
+     <br>
+     <img id="snapshot" src=""/>
+     <br>
+     
+</section>
+
+<section id="Area10" class="area10">
+     <h2>Contacts List</h2>
+     <br>
+     <p><label>Last Name:</label>
+     <input id="LastName" type="text" style="width: 200px" /></p>
+     <button onclick="AccessContacts();" class="button">Find</button>
+     <label id="contactname"></label>
+</section>
+        
+<br>
+<br>
+      <a href="http://student.business.uab.edu">Student Web Site</a>
+<br>
+  <footer> Tawny Fowler tafowler@uab.edu</footer>
+</body>
+</html>

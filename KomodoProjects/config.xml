@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<widget xmlns ="http://www.w3.org/ns/widgets"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:gap ="http://phonegap.com/ns/1.0"
+        id  ="edu.uab.business.studentapp"
+        versionCode ="1"
+        version ="0.0.1">
+    <!--versionCode is optional and Android only-->
+    <name>Mobile App Demonstration</name>
+    <description>
+        Mobile App Demonstration
+    </description>
+    <author> Tawny A. Fowler </author>
+    <preference name="phonegap-version" value="cli-7.0.1" />
+    <plugin name="cordova-plugin-whitelist" source="npm"/>
+    <access origin="*"/>
+    <plugin name="cordova-plugin-camera" source="npm"/>
+    <plugin name="cordova-plugin-geolocation" source="npm" version="3.0.0" />
+    <plugin name="cordova-plugin-splashscreen" source="npm" version="4.1.0" />
+    <preference name="SplashScreenDelay" value= "3000"/>
+    
+    <icon src="images/ChipCard.png" />
+    <splash src="images/splash2.png" />
+   
+        <meta-data
+          android:name="com.google.android.geo.API_Key"
+          android:value="AIzaSyCogJa7WXGi0NqX1OacacTrAvb1z_HMg4w"/>
+</widget>

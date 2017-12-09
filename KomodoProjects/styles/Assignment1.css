@@ -1,0 +1,52 @@
+#Area1 {display: none; position: relative; height: 100%;
+width: 600px; float: none;}
+
+#Area2  {display: none; position: relative; height: 100%;
+width: 600px; float: none;}
+
+#Area3 {display: none; position: relative; height: 100%;
+width: 600px; float: none;}
+
+footer {position: relative; width: 100%; bottom: 0;
+font-style: italic;
+text-align: center;
+background-color: rgb(255,105,180);
+}
+
+#Area4 {display: none; position: relative; height: 100%; width: 600px; float: none;}
+
+#Area5 {display: none; position: relative; height: 100%; width: 600px; float: none;}
+
+#Area6 {display: none; position: relative; height: 100%; width:  600px; float: none;}
+
+#Area7 {display: none; position: relative; height: 100%; width: 600px; float: none;}
+
+#Area8 {display: none; position: relative; height: 100%; width: 600px; float: none;}
+
+#Area9 {display: none; position: relative; height: 100%; width: 600px; float: none;}
+
+#Area10 {display: none; position: relative; height: 100%; width: 600px; float: none;}
+
+table { border: 2px solid; table-layout: auto; border-color: black; padding: 2px; text-align: center;}
+
+#picture {visibility: hidden; position: absolute; height: 75%; width: 100%; overflow: scroll;}
+img {float: left; height: auto; width: auto; box-shadow: 10px 10px 5px 5px;}
+
+.form {display: inline-block;
+width: 100px;
+margin-right: 10px;
+text-align: right;}
+
+/*fieldset {width: 550px;
+margin: 0px auto;}*/
+
+.button {border: 1px solid violet;
+background-color: white;}
+.button2 {border: 2px solid black;
+background-color: white;
+align-self: center;
+}
+
+.delete {font-size: 14pt;
+color: blue;
+font: bold;}
