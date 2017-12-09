@@ -425,16 +425,16 @@ function	showPosition(position)
 //Function	that invokes device	camera	app	and	captures output
 function CapturePhoto()
 {
-	navigator.camera.getPicture(onSuccess, onFail, { quality: 20, destinationtype:	
-    destinationtype.FILE_URI, saveToPhotoAlbum: true });
+	navigator.camera.getPicture(onSuccess, onFail, { quality:20, destinationtype:	
+    destinationtype.FILE_URI,saveToPhotoAlbum:true});
 
 }
 
 function onSuccess(imageURI)
 {
 	var	picdisplay =document.getElementById("snapshot");
-    piccdisplay.style.display='block';
-	piccdisplay.src	=imageURI;	//Assigns the picture to the image source property of the image on the web page
+    picdisplay.style.display='block';
+	picdisplay.src=imageURI;	//Assigns the picture to the image source property of the image on the web page
 }
 
 function onFail(message)

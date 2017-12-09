@@ -29,7 +29,10 @@ background-color: rgb(255,105,180);
 
 table { border: 2px solid; table-layout: auto; border-color: black; padding: 2px; text-align: center;}
 
-#picture {visibility: hidden; position: absolute; height: 75%; width: 100%; overflow: scroll;}
+#picture {visibility: hidden; position: relative; height: 75%; width: 100%; overflow: scroll;}
+
+#contacts {visibility: hidden; position: relative; height: 75%; width: 100%; overflow: scroll;}
+
 img {float: left; height: auto; width: auto; box-shadow: 10px 10px 5px 5px;}
 
 .form {display: inline-block;
