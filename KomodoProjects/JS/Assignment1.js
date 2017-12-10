@@ -389,8 +389,7 @@ function GenerateOutput(output)
 { 
     if (output.WasSuccessful == 1)
     {
-        alert ("The customer was added successfully.");
-        
+        alert ("The customer was added successfully.");     
     }
     else
     {
@@ -446,24 +445,24 @@ function pickContact()
 {
 	navigator.contacts.pickContact(function(contact)	
 	{
-	var	contactinfo	="";
-	contactinfo	+=contact.name.givenName + ""+ contact.name.familyName +"<br>";
+	var	contactlist	="";
+	contactlist	+=contact.name.givenName + ""+ contact.name.familyName +"<br>";
 	var	count=0;
 	if	(contact.phoneNumbers !==null) 
 	{
 	for	(count=0; count<contact.phoneNumbers.length;count++)	
 	{
-	contactinfo	+=contact.phoneNumbers[count].type+":"+ contact.phoneNumbers[count].value+"<br>";
+	contactlist	+=contact.phoneNumbers[count].type+":"+ contact.phoneNumbers[count].value+"<br>";
 	}
 	}
-	if	(contact.emails	!==	null)
+	if	(contact.emails	!==null)
 	{
 	for(count=0;count<contact.emails.length;count++)	
 	{
-	contactinfo	+=contact.emails[count].type+": "+contact.emails[count].value+"<br>";
+	contactlist	+=contact.emails[count].type+": "+contact.emails[count].value+"<br>";
 	}
 	}
-	document.getElementById("contactname").innerHTML=contactinfo;
+	document.getElementById("contactname").innerHTML=contactlist;
 	},
     function(err)
 	{
@@ -471,7 +470,7 @@ function pickContact()
 }
 ); }
     
-    function SearchContact(){
+    function SearchList(){
    
     var lastname = document.getElementById("LastName").value;
     var options  = new ContactFindOptions();
@@ -483,7 +482,7 @@ function pickContact()
     navigator.contacts.find(fields, onSuccess, onError, options);
     
 function onSuccess(contacts) {
-    alert('Found' + contacts.length + 'contacts.');
+    alert('You have' + contacts.length + 'contacts with this last name.');
     var count="";
     var table = document.createElement ("table");
     table = "<table border = 1><tr><th>Display Name</th><th>Phone Numbers</th/</tr>";
@@ -497,14 +496,10 @@ for (count=0; count < contacts[i].phoneNumbers.length; count++)
 {
 phone += contacts[i].phoneNumbers[count].value + ", ";
 }
-        }
-        
-        
+        }   
     table += "<tr><td>" + (name) + "</td><td>" + (phone) + "</td></tr>";
-    
     }
     document.getElementById("contactname").innerHTML = table;
-
 }
 function onError(contactError) {
     alert('onError!');
