@@ -424,7 +424,7 @@ function	showPosition(position)
 
 function CapturePhoto()
 {
-	navigator.camera.getPicture(onSuccess, onFail, { quality:300px, destinationtype:	
+	navigator.camera.getPicture(onSuccess, onFail, { quality:20, destinationtype:
     destinationtype.FILE_URI,saveToPhotoAlbum:true});
 
 }
