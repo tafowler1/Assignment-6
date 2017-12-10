@@ -442,9 +442,9 @@ function onFail(message)
  alert("Failed because: " +	message);
 }
 
-function AccessContact()
+function pickContact()
 {
-	navigator.contacts.AccessContact(function(contact)	
+	navigator.contacts.pickContact(function(contact)	
 	{
 	var	contactinfo	="";
 	contactinfo	+=contact.name.givenName + ""+ contact.name.familyName +"<br>";
