@@ -482,7 +482,7 @@ function pickContact()
     navigator.contacts.find(fields, onSuccess, onError, options);
     
 function onSuccess(contacts) {
-    alert('You have' + contacts.length + 'contacts with this last name.');
+    alert('You have ' + contacts.length + 'contacts with this last name.');
     var count="";
     var table = document.createElement ("table");
     table = "<table border = 1><tr><th>Display Name</th><th>Phone Numbers</th/</tr>";
